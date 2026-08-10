@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cafe</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff8f0;
+            color: #4b3428;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #6f4e37;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        section {
+            max-width: 900px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #6f4e37;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .item h3 {
+            margin-bottom: 8px;
+        }
+
+        .price {
+            color: #a65f38;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .contact {
+            text-align: center;
+            background: #f1dfce;
+            border-radius: 15px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #6f4e37;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #6f4e37;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            .menu {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>☕ My Cafe</h1>
+        <p>คาเฟ่เล็ก ๆ ที่ตั้งใจเสิร์ฟกาแฟและขนมอร่อย ๆ ในบรรยากาศอบอุ่น</p>
+    </header>
+
+    <section>
+        <h2>เมนูแนะนำ</h2>
+
+        <div class="menu">
+
+            <div class="item">
+                <h3>☕ Iced Americano</h3>
+                <p>กาแฟเข้ม หอม สดชื่น</p>
+                <p class="price">60 บาท</p>
+            </div>
+
+            <div class="item">
+                <h3>🥛 Iced Latte</h3>
+                <p>กาแฟนมรสนุ่มละมุน</p>
+                <p class="price">65 บาท</p>
+            </div>
+
+            <div class="item">
+                <h3>🍵 Matcha Latte</h3>
+                <p>มัทฉะหอมเข้มข้น ผสมนม</p>
+                <p class="price">70 บาท</p>
+            </div>
+
+            <div class="item">
+                <h3>🍰 Chocolate Cake</h3>
+                <p>เค้กช็อกโกแลตเนื้อนุ่ม</p>
+                <p class="price">75 บาท</p>
+            </div>
+
+            <div class="item">
+                <h3>🥐 Croissant</h3>
+                <p>ครัวซองต์อบใหม่ หอมเนย</p>
+                <p class="price">55 บาท</p>
+            </div>
+
+            <div class="item">
+                <h3>🍓 Strawberry Cake</h3>
+                <p>เค้กสตรอว์เบอร์รีหวานละมุน</p>
+                <p class="price">80 บาท</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>สั่งซื้อ / ติดต่อร้าน</h2>
+        <p>สนใจสั่งเครื่องดื่มและขนม สามารถติดต่อเราได้ทาง LINE</p>
+
+        <a class="button" href="https://line.me/" target="_blank">
+            ติดต่อผ่าน LINE
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2026 My Cafe | Coffee & Bakery</p>
+    </footer>
+
+</body>
+</html>
