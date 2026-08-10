@@ -23,11 +23,11 @@
             background: #6f4e37;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 45px 20px;
         }
 
         header h1 {
-            font-size: 40px;
+            font-size: 42px;
             margin-bottom: 10px;
         }
 
@@ -36,32 +36,49 @@
         }
 
         section {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
-            padding: 35px 20px;
+            padding: 40px 20px;
         }
 
         h2 {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             color: #6f4e37;
+            font-size: 30px;
         }
 
         .menu {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            gap: 25px;
         }
 
         .item {
             background: white;
-            padding: 25px;
             border-radius: 15px;
+            overflow: hidden;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+        }
+
+        .item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .item-content {
+            padding: 20px;
         }
 
         .item h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .item p {
             margin-bottom: 8px;
         }
 
@@ -80,7 +97,7 @@
         .button {
             display: inline-block;
             margin-top: 15px;
-            padding: 12px 25px;
+            padding: 12px 30px;
             background: #6f4e37;
             color: white;
             text-decoration: none;
@@ -94,17 +111,21 @@
             color: white;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 700px) {
             header h1 {
-                font-size: 32px;
+                font-size: 34px;
             }
 
             .menu {
                 grid-template-columns: 1fr;
             }
 
+            .item img {
+                height: 230px;
+            }
+
             section {
-                padding: 25px 15px;
+                padding: 30px 15px;
             }
         }
     </style>
@@ -123,39 +144,57 @@
         <div class="menu">
 
             <div class="item">
-                <h3>☕ Iced Americano</h3>
-                <p>กาแฟเข้ม หอม สดชื่น</p>
-                <p class="price">60 บาท</p>
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Iced Americano">
+                <div class="item-content">
+                    <h3>☕ Iced Americano</h3>
+                    <p>กาแฟเข้ม หอม สดชื่น</p>
+                    <p class="price">60 บาท</p>
+                </div>
             </div>
 
             <div class="item">
-                <h3>🥛 Iced Latte</h3>
-                <p>กาแฟนมรสนุ่มละมุน</p>
-                <p class="price">65 บาท</p>
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Iced Latte">
+                <div class="item-content">
+                    <h3>🥛 Iced Latte</h3>
+                    <p>กาแฟนมรสนุ่มละมุน</p>
+                    <p class="price">65 บาท</p>
+                </div>
             </div>
 
             <div class="item">
-                <h3>🍵 Matcha Latte</h3>
-                <p>มัทฉะหอมเข้มข้น ผสมนม</p>
-                <p class="price">70 บาท</p>
+                <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Matcha Latte">
+                <div class="item-content">
+                    <h3>🍵 Matcha Latte</h3>
+                    <p>มัทฉะหอมเข้มข้น ผสมนม</p>
+                    <p class="price">70 บาท</p>
+                </div>
             </div>
 
             <div class="item">
-                <h3>🍰 Chocolate Cake</h3>
-                <p>เค้กช็อกโกแลตเนื้อนุ่ม</p>
-                <p class="price">75 บาท</p>
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Chocolate Cake">
+                <div class="item-content">
+                    <h3>🍰 Chocolate Cake</h3>
+                    <p>เค้กช็อกโกแลตเนื้อนุ่ม</p>
+                    <p class="price">75 บาท</p>
+                </div>
             </div>
 
             <div class="item">
-                <h3>🥐 Croissant</h3>
-                <p>ครัวซองต์อบใหม่ หอมเนย</p>
-                <p class="price">55 บาท</p>
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Croissant">
+                <div class="item-content">
+                    <h3>🥐 Croissant</h3>
+                    <p>ครัวซองต์อบใหม่ หอมเนย</p>
+                    <p class="price">55 บาท</p>
+                </div>
             </div>
 
             <div class="item">
-                <h3>🍓 Strawberry Cake</h3>
-                <p>เค้กสตรอว์เบอร์รีหวานละมุน</p>
-                <p class="price">80 บาท</p>
+                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80" alt="Strawberry Cake">
+                <div class="item-content">
+                    <h3>🍓 Strawberry Cake</h3>
+                    <p>เค้กสตรอว์เบอร์รีหวานละมุน</p>
+                    <p class="price">80 บาท</p>
+                </div>
             </div>
 
         </div>
