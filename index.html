@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cafe | Coffee & Bakery</title>
+    <title>My Cafe | Coffee & Bakery Chiang Mai</title>
     <style>
         :root {
             --primary: #6F4E37;
@@ -70,6 +70,36 @@
             padding: 1rem;
             background: #F4EBE1;
             border-radius: 8px;
+        }
+
+        /* Section: Store Atmosphere Gallery (เพิ่มใหม่) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .gallery-card p {
+            padding: 0.8rem 1rem;
+            margin: 0;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #555;
+            font-weight: 500;
         }
 
         /* Menu Grid */
@@ -207,8 +237,8 @@
     <header>
         <h1>☕ My Cafe</h1>
         <p class="header-subtitle">
-            คาเฟ่เล็ก ๆ ที่ตั้งใจเสิร์ฟกาแฟสดสเปเชียลตี้และขนมโฮมเมดในบรรยากาศอบอุ่นเป็นกันเอง 
-            เราคัดสรรเมล็ดกาแฟคุณภาพเยี่ยม พร้อมเบเกอรี่อบใหม่ทุกวัน เพื่อให้ทุกช่วงเวลาของคุณเต็มไปด้วยความสุข
+            คาเฟ่เล็ก ๆ บรรยากาศสุดอบอุ่นใจกลางเมืองเชียงใหม่ ที่ตั้งใจเสิร์ฟกาแฟสดสเปเชียลตี้และขนมโฮมเมด 
+            คัดสรรเมล็ดกาแฟคุณภาพเยี่ยม พร้อมเบเกอรี่อบใหม่ทุกวัน เพื่อให้ทุกช่วงเวลาของคุณเต็มไปด้วยความสุข
         </p>
     </header>
 
@@ -219,25 +249,42 @@
             <h2>ทำไมต้องเลือก My Cafe?</h2>
             <div class="highlights">
                 <div class="highlight-item">
-                    🌱 <strong>เมล็ดกาแฟคัดพิเศษ</strong><br>ใช้อาราบิก้าแท้ 100% คั่วสดใหม่ทุกสัปดาห์
+                    🌱 <strong>เมล็ดกาแฟคัดพิเศษ</strong><br>ใช้อาราบิก้าแท้ 100% จากยอดดอยเชียงใหม่ คั่วสดใหม่ทุกสัปดาห์
                 </div>
                 <div class="highlight-item">
-                    🥐 <strong>เบเกอรี่อบสด</strong><br>ใช้นมเนยแท้ ไม่ใส่สารกันบูด อบใหม่ทุกเช้า
+                    🥐 <strong>เบเกอรี่อบสด</strong><br>ใช้นมเนยแท้ ไม่ใส่สารกันบูด อบใหม่สดๆ ทุกเช้า
                 </div>
                 <div class="highlight-item">
-                    🛵 <strong>จัดส่งรวดเร็ว</strong><br>เสิร์ฟความสดชื่นถึงหน้าบ้านคุณภายใน 30 นาที
+                    🛵 <strong>จัดส่งรวดเร็ว</strong><br>เสิร์ฟความสดชื่นถึงหน้าบ้านคุณทั่วเมืองเชียงใหม่ภายใน 30 นาที
                 </div>
             </div>
         </section>
 
-        <!-- 2. Menu Catalog -->
+        <!-- 2. Store Atmosphere Gallery (เพิ่มโซนบรรยากาศร้าน) -->
+        <h2>🌿 บรรยากาศภายในร้าน</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Cozy Cafe Seating">
+                <p>มุมนั่งชิลบรรยากาศอบอุ่น เหมาะกับการทำงานและพักผ่อน</p>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Coffee Counter">
+                <p>โซนบาร์กาแฟดิป สัมผัสกลิ่นหอมของกาแฟสดแบบใกล้ชิด</p>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" alt="Garden View">
+                <p>โซนสวนร่มรื่น สัมผัสอากาศสบายๆ สไตล์เชียงใหม่</p>
+            </div>
+        </div>
+
+        <!-- 3. Menu Catalog -->
         <h2>เมนูแนะนำ</h2>
         <div class="menu-grid">
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Iced Americano">
                 <div class="menu-info">
                     <h3>☕ Iced Americano</h3>
-                    <p>กาแฟเข้ม หอม สดชื่น จากเมล็ดกาแฟไทยคั่วกลาง</p>
+                    <p>กาแฟเข้ม หอม สดชื่น จากเมล็ดกาแฟเชียงใหม่คั่วกลาง</p>
                     <p class="price">60 บาท</p>
                     <button class="add-btn" onclick="addToCart('Iced Americano', 60)">+ เพิ่มลงตะกร้า</button>
                 </div>
@@ -303,7 +350,6 @@
                 </div>
             </div>
 
-            <!-- แก้ไข URL รูปภาพของ Basque Cheesecake เรียบร้อยแล้ว -->
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1524351199678-941a58a3df50?auto=format&fit=crop&w=800&q=80" alt="Basque Burnt Cheesecake">
                 <div class="menu-info">
@@ -315,7 +361,7 @@
             </div>
         </div>
 
-        <!-- 3. Interactive Customer Activity: Order Form & Cart -->
+        <!-- 4. Interactive Customer Activity: Order Form & Cart -->
         <section class="order-section">
             <h2>🛒 สั่งซื้อสินค้า / จองล่วงหน้า</h2>
             <ul id="cart-list" class="cart-list">
@@ -335,8 +381,8 @@
                 <div class="form-group">
                     <label for="type">รูปแบบการรับสินค้า:</label>
                     <select id="type">
-                        <option value="pickup">รับที่หน้าร้าน</option>
-                        <option value="delivery">จัดส่งถึงบ้าน</option>
+                        <option value="pickup">รับที่หน้าร้าน (เชียงใหม่)</option>
+                        <option value="delivery">จัดส่งถึงบ้าน (ในตัวเมืองเชียงใหม่)</option>
                     </select>
                 </div>
                 <button type="submit" class="submit-btn">ยืนยันคำสั่งซื้อ</button>
@@ -346,10 +392,11 @@
     </div>
 
     <footer>
-        <p><strong>My Cafe | Coffee & Bakery</strong></p>
-        <p>📍 ที่ตั้ง: 123 ถ.สุขุมวิท กรุงเทพฯ | 🕒 เปิดบริการทุกวัน: 07:00 - 18:00 น.</p>
-        <p>📱 ติดต่อผ่าน LINE: <a href="https://line.me/" target="_blank" style="color: #D2B48C;">@mycafe</a></p>
-        <p>© 2026 My Cafe. All rights reserved.</p>
+        <p><strong>My Cafe | Coffee & Bakery Chiang Mai</strong></p>
+        <!-- อัปเดตที่อยู่เชียงใหม่เรียบร้อย -->
+        <p>📍 ที่ตั้ง: ถนน นิมมานเหิมนทร์ ซอย 7 อ.เมือง จ.เชียงใหม่ | 🕒 เปิดบริการทุกวัน: 07:00 - 18:00 น.</p>
+        <p>📱 ติดต่อผ่าน LINE: <a href="https://line.me/" target="_blank" style="color: #D2B48C;">@mycafe_cm</a></p>
+        <p>© 2026 My Cafe Chiang Mai. All rights reserved.</p>
 
         <!-- Mandatory AI Notice -->
         <div class="ai-notice">
