@@ -26,11 +26,19 @@
             background-color: var(--primary);
             color: white;
             text-align: center;
-            padding: 2.5rem 1rem;
+            padding: 3rem 1.5rem;
         }
 
         header h1 { margin: 0; font-size: 2.5rem; }
-        header p { margin-top: 0.5rem; opacity: 0.9; }
+        
+        .header-subtitle {
+            max-width: 650px;
+            margin: 0.8rem auto 0 auto;
+            font-size: 1.05rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.7;
+        }
 
         .container {
             max-width: 1000px;
@@ -65,7 +73,7 @@
         }
 
         /* Menu Grid */
-        h2 { text-align: center; color: var(--primary); }
+        h2 { text-align: center; color: var(--primary); margin-bottom: 1.5rem; }
         
         .menu-grid {
             display: grid;
@@ -96,8 +104,9 @@
             flex-grow: 1;
         }
 
-        .menu-info h3 { margin: 0 0 0.5rem 0; }
-        .price { font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+        .menu-info h3 { margin: 0 0 0.5rem 0; font-size: 1.15rem; }
+        .menu-info p { font-size: 0.95rem; color: #555; margin-bottom: 0.8rem; }
+        .price { font-weight: bold; color: var(--primary); font-size: 1.15rem; }
 
         .add-btn {
             margin-top: auto;
@@ -108,6 +117,7 @@
             border-radius: 6px;
             cursor: pointer;
             transition: background 0.2s;
+            font-weight: bold;
         }
 
         .add-btn:hover { background-color: #553b28; }
@@ -149,6 +159,7 @@
         .form-group label {
             display: block;
             margin-bottom: 0.3rem;
+            font-weight: 500;
         }
 
         .form-group input, .form-group select {
@@ -167,6 +178,7 @@
             padding: 0.8rem;
             border-radius: 6px;
             font-size: 1rem;
+            font-weight: bold;
             cursor: pointer;
         }
 
@@ -194,7 +206,10 @@
 
     <header>
         <h1>☕ My Cafe</h1>
-        <p>คาเฟ่เล็ก ๆ ที่ตั้งใจเสิร์ฟกาแฟสดและขนมโฮมเมดในบรรยากาศอบอุ่น</p>
+        <p class="header-subtitle">
+            คาเฟ่เล็ก ๆ ที่ตั้งใจเสิร์ฟกาแฟสดสเปเชียลตี้และขนมโฮมเมดในบรรยากาศอบอุ่นเป็นกันเอง 
+            เราคัดสรรเมล็ดกาแฟคุณภาพเยี่ยม พร้อมเบเกอรี่อบใหม่ทุกวัน เพื่อให้ทุกช่วงเวลาของคุณเต็มไปด้วยความสุข
+        </p>
     </header>
 
     <div class="container">
@@ -248,13 +263,55 @@
                 </div>
             </div>
 
+            <!-- เพิ่มใหม่: ช็อกโกแลตร้อน -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80" alt="Hot Chocolate">
+                <div class="menu-info">
+                    <h3>☕ Hot Chocolate</h3>
+                    <p>ช็อกโกแลตร้อนเข้มข้น ท็อปด้วยมาร์ชแมลโลว์นุ่มฟู</p>
+                    <p class="price">60 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Hot Chocolate', 60)">+ เพิ่มลงตะกร้า</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80" alt="Iced Honey Lemon Tea">
+                <div class="menu-info">
+                    <h3>🍋 Honey Lemon Tea</h3>
+                    <p>ชาดำกลิ่นหอมผสานน้ำผึ้งแท้และมะนาวสด ดื่มแล้วสดชื่น</p>
+                    <p class="price">65 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Honey Lemon Tea', 65)">+ เพิ่มลงตะกร้า</button>
+                </div>
+            </div>
+
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Croissant">
                 <div class="menu-info">
-                    <h3>🥐 Croissant</h3>
+                    <h3>🥐 Butter Croissant</h3>
                     <p>ครัวซองต์เนยแท้จากฝรั่งเศส อบใหม่กรอบนอกนุ่มใน</p>
                     <p class="price">55 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Croissant', 55)">+ เพิ่มลงตะกร้า</button>
+                    <button class="add-btn" onclick="addToCart('Butter Croissant', 55)">+ เพิ่มลงตะกร้า</button>
+                </div>
+            </div>
+
+            <!-- เปลี่ยนเป็น: บราวนี่ -->
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Fudge Brownie">
+                <div class="menu-info">
+                    <h3>🍫 Fudge Brownie</h3>
+                    <p>บราวนี่ฟัดจ์ช็อกโกแลตเข้มข้น หนึบหนับ หวานกำลังดี</p>
+                    <p class="price">65 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Fudge Brownie', 65)">+ เพิ่มลงตะกร้า</button>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=800&q=80" alt="Basque Burnt Cheesecake">
+                <div class="menu-info">
+                    <h3>🧀 Basque Cheesecake</h3>
+                    <p>ชีสเค้กหน้าไหม้สไตล์บาสก์ เนื้อเนียนนุ่ม หอมชีสเข้มข้น</p>
+                    <p class="price">85 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Basque Cheesecake', 85)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
         </div>
@@ -295,7 +352,7 @@
         <p>📱 ติดต่อผ่าน LINE: <a href="https://line.me/" target="_blank" style="color: #D2B48C;">@mycafe</a></p>
         <p>© 2026 My Cafe. All rights reserved.</p>
 
-        <!-- 4. Mandatory AI Notice -->
+        <!-- Mandatory AI Notice -->
         <div class="ai-notice">
             <p>📌 <strong>หมายเหตุการใช้งาน AI (AI Disclosure):</strong> เว็บไซต์นี้พัฒนาขึ้นโดยใช้ AI ช่วยในการออกแบบโครงสร้าง HTML, การตกแต่งสไตล์ CSS และการเขียนฟังก์ชัน JavaScript สำหรับระบบตะกร้าสินค้า</p>
         </div>
@@ -320,7 +377,7 @@
                 cartList.innerHTML = '<li style="color: #888; text-align: center;">ยังไม่มีสินค้าในตะกร้า</li>';
             } else {
                 cartList.innerHTML = '';
-                cart.forEach((item, index) => {
+                cart.forEach((item) => {
                     const li = document.createElement('li');
                     li.className = 'cart-item';
                     li.innerHTML = `<span>${item.name}</span> <span>${item.price} บาท</span>`;
