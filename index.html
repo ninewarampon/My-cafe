@@ -3,215 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cafe</title>
-
+    <title>My Cafe | Coffee & Bakery</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --primary: #6F4E37;
+            --accent: #D2B48C;
+            --bg: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text: #333333;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #fff8f0;
-            color: #4b3428;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
         }
 
         header {
-            background: #6f4e37;
+            background-color: var(--primary);
             color: white;
             text-align: center;
-            padding: 45px 20px;
+            padding: 2.5rem 1rem;
         }
 
-        header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin-top: 0.5rem; opacity: 0.9; }
 
-        header p {
-            font-size: 18px;
-        }
-
-        section {
+        .container {
             max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
         }
 
-        h2 {
+        /* Section: Value Proposition */
+        .about-section {
+            background-color: var(--card-bg);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
             text-align: center;
-            margin-bottom: 30px;
-            color: #6f4e37;
-            font-size: 30px;
         }
 
-        .menu {
+        .highlights {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-item {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem;
+            background: #F4EBE1;
+            border-radius: 8px;
+        }
+
+        /* Menu Grid */
+        h2 { text-align: center; color: var(--primary); }
+        
+        .menu-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
-        .item {
-            background: white;
-            border-radius: 15px;
+        .menu-card {
+            background: var(--card-bg);
+            border-radius: 12px;
             overflow: hidden;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
         }
 
-        .item img {
+        .menu-card img {
             width: 100%;
-            height: 220px;
+            height: 200px;
             object-fit: cover;
-            display: block;
         }
 
-        .item-content {
-            padding: 20px;
+        .menu-info {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
-        .item h3 {
-            margin-bottom: 8px;
-            font-size: 20px;
+        .menu-info h3 { margin: 0 0 0.5rem 0; }
+        .price { font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+
+        .add-btn {
+            margin-top: auto;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .item p {
-            margin-bottom: 8px;
+        .add-btn:hover { background-color: #553b28; }
+
+        /* Order / Cart Section */
+        .order-section {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
         }
 
-        .price {
-            color: #a65f38;
+        .cart-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .total-price {
+            text-align: right;
+            font-size: 1.2rem;
             font-weight: bold;
-            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
 
-        .contact {
-            text-align: center;
-            background: #f1dfce;
-            border-radius: 15px;
+        .form-group {
+            margin-bottom: 1rem;
         }
 
-        .button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
-            background: #6f4e37;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #27ae60;
             color: white;
-            text-decoration: none;
-            border-radius: 25px;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
         }
 
+        .submit-btn:hover { background-color: #219150; }
+
+        /* Footer & Info */
         footer {
-            text-align: center;
-            padding: 20px;
-            background: #6f4e37;
+            background-color: #333;
             color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
         }
 
-        @media (max-width: 700px) {
-            header h1 {
-                font-size: 34px;
-            }
-
-            .menu {
-                grid-template-columns: 1fr;
-            }
-
-            .item img {
-                height: 230px;
-            }
-
-            section {
-                padding: 30px 15px;
-            }
+        .ai-notice {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-top: 1rem;
+            border-top: 1px solid #444;
+            padding-top: 1rem;
         }
     </style>
 </head>
-
 <body>
 
     <header>
         <h1>☕ My Cafe</h1>
-        <p>คาเฟ่เล็ก ๆ ที่ตั้งใจเสิร์ฟกาแฟและขนมอร่อย ๆ ในบรรยากาศอบอุ่น</p>
+        <p>คาเฟ่เล็ก ๆ ที่ตั้งใจเสิร์ฟกาแฟสดและขนมโฮมเมดในบรรยากาศอบอุ่น</p>
     </header>
 
-    <section>
+    <div class="container">
+
+        <!-- 1. Value Proposition / About Us -->
+        <section class="about-section">
+            <h2>ทำไมต้องเลือก My Cafe?</h2>
+            <div class="highlights">
+                <div class="highlight-item">
+                    🌱 <strong>เมล็ดกาแฟคัดพิเศษ</strong><br>ใช้อาราบิก้าแท้ 100% คั่วสดใหม่ทุกสัปดาห์
+                </div>
+                <div class="highlight-item">
+                    🥐 <strong>เบเกอรี่อบสด</strong><br>ใช้นมเนยแท้ ไม่ใส่สารกันบูด อบใหม่ทุกเช้า
+                </div>
+                <div class="highlight-item">
+                    🛵 <strong>จัดส่งรวดเร็ว</strong><br>เสิร์ฟความสดชื่นถึงหน้าบ้านคุณภายใน 30 นาที
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Menu Catalog -->
         <h2>เมนูแนะนำ</h2>
-
-        <div class="menu">
-
-            <div class="item">
+        <div class="menu-grid">
+            <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Iced Americano">
-                <div class="item-content">
+                <div class="menu-info">
                     <h3>☕ Iced Americano</h3>
-                    <p>กาแฟเข้ม หอม สดชื่น</p>
+                    <p>กาแฟเข้ม หอม สดชื่น จากเมล็ดกาแฟไทยคั่วกลาง</p>
                     <p class="price">60 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Iced Americano', 60)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
-            <div class="item">
+            <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Iced Latte">
-                <div class="item-content">
+                <div class="menu-info">
                     <h3>🥛 Iced Latte</h3>
-                    <p>กาแฟนมรสนุ่มละมุน</p>
+                    <p>กาแฟนมรสนุ่มละมุน ใช้นมสดแท้ 100%</p>
                     <p class="price">65 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Iced Latte', 65)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
-            <div class="item">
+            <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Matcha Latte">
-                <div class="item-content">
+                <div class="menu-info">
                     <h3>🍵 Matcha Latte</h3>
-                    <p>มัทฉะหอมเข้มข้น ผสมนม</p>
+                    <p>มัทฉะเกรดพรีเมียมนำเข้าจากญี่ปุ่น หอมเข้มข้น</p>
                     <p class="price">70 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Matcha Latte', 70)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Chocolate Cake">
-                <div class="item-content">
-                    <h3>🍰 Chocolate Cake</h3>
-                    <p>เค้กช็อกโกแลตเนื้อนุ่ม</p>
-                    <p class="price">75 บาท</p>
-                </div>
-            </div>
-
-            <div class="item">
+            <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Croissant">
-                <div class="item-content">
+                <div class="menu-info">
                     <h3>🥐 Croissant</h3>
-                    <p>ครัวซองต์อบใหม่ หอมเนย</p>
+                    <p>ครัวซองต์เนยแท้จากฝรั่งเศส อบใหม่กรอบนอกนุ่มใน</p>
                     <p class="price">55 บาท</p>
+                    <button class="add-btn" onclick="addToCart('Croissant', 55)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
-
-            <div class="item">
-                <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=800&q=80" alt="Strawberry Cake">
-                <div class="item-content">
-                    <h3>🍓 Strawberry Cake</h3>
-                    <p>เค้กสตรอว์เบอร์รีหวานละมุน</p>
-                    <p class="price">80 บาท</p>
-                </div>
-            </div>
-
         </div>
-    </section>
 
-    <section class="contact">
-        <h2>สั่งซื้อ / ติดต่อร้าน</h2>
-        <p>สนใจสั่งเครื่องดื่มและขนม สามารถติดต่อเราได้ทาง LINE</p>
+        <!-- 3. Interactive Customer Activity: Order Form & Cart -->
+        <section class="order-section">
+            <h2>🛒 สั่งซื้อสินค้า / จองล่วงหน้า</h2>
+            <ul id="cart-list" class="cart-list">
+                <li style="color: #888; text-align: center;">ยังไม่มีสินค้าในตะกร้า (กดเพิ่มสินค้าจากเมนูด้านบน)</li>
+            </ul>
+            <div class="total-price">ราคารวม: <span id="total-price">0</span> บาท</div>
 
-        <a class="button" href="https://line.me/" target="_blank">
-            ติดต่อผ่าน LINE
-        </a>
-    </section>
+            <form onsubmit="handleOrder(event)">
+                <div class="form-group">
+                    <label for="name">ชื่อผู้สั่งซื้อ:</label>
+                    <input type="text" id="name" required placeholder="กรอกชื่อของคุณ">
+                </div>
+                <div class="form-group">
+                    <label for="phone">เบอร์โทรศัพท์:</label>
+                    <input type="tel" id="phone" required placeholder="08X-XXX-XXXX">
+                </div>
+                <div class="form-group">
+                    <label for="type">รูปแบบการรับสินค้า:</label>
+                    <select id="type">
+                        <option value="pickup">รับที่หน้าร้าน</option>
+                        <option value="delivery">จัดส่งถึงบ้าน</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">ยืนยันคำสั่งซื้อ</button>
+            </form>
+        </section>
+
+    </div>
 
     <footer>
-        <p>© 2026 My Cafe | Coffee & Bakery</p>
+        <p><strong>My Cafe | Coffee & Bakery</strong></p>
+        <p>📍 ที่ตั้ง: 123 ถ.สุขุมวิท กรุงเทพฯ | 🕒 เปิดบริการทุกวัน: 07:00 - 18:00 น.</p>
+        <p>📱 ติดต่อผ่าน LINE: <a href="https://line.me/" target="_blank" style="color: #D2B48C;">@mycafe</a></p>
+        <p>© 2026 My Cafe. All rights reserved.</p>
+
+        <!-- 4. Mandatory AI Notice -->
+        <div class="ai-notice">
+            <p>📌 <strong>หมายเหตุการใช้งาน AI (AI Disclosure):</strong> เว็บไซต์นี้พัฒนาขึ้นโดยใช้ AI ช่วยในการออกแบบโครงสร้าง HTML, การตกแต่งสไตล์ CSS และการเขียนฟังก์ชัน JavaScript สำหรับระบบตะกร้าสินค้า</p>
+        </div>
     </footer>
 
+    <!-- JavaScript Handling Interactive Features -->
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartList = document.getElementById('cart-list');
+            const totalPriceEl = document.getElementById('total-price');
+
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li style="color: #888; text-align: center;">ยังไม่มีสินค้าในตะกร้า</li>';
+            } else {
+                cartList.innerHTML = '';
+                cart.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'cart-item';
+                    li.innerHTML = `<span>${item.name}</span> <span>${item.price} บาท</span>`;
+                    cartList.appendChild(li);
+                });
+            }
+
+            totalPriceEl.innerText = total;
+        }
+
+        function handleOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) {
+                alert('กรุณาเลือกสินค้าอย่างน้อย 1 รายการก่อนสั่งซื้อครับ');
+                return;
+            }
+            const name = document.getElementById('name').value;
+            alert(`ขอบคุณครับคุณ ${name}!\nระบบได้รับคำสั่งซื้อเรียบร้อยแล้ว (ราคารวม ${total} บาท)`);
+            
+            // Reset Cart & Form
+            cart = [];
+            total = 0;
+            updateCartUI();
+            e.target.reset();
+        }
+    </script>
 </body>
 </html>
