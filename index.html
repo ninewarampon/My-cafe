@@ -72,7 +72,7 @@
             border-radius: 8px;
         }
 
-        /* Section: Store Atmosphere Gallery (เพิ่มใหม่) */
+        /* Section: Store Atmosphere Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -136,7 +136,27 @@
 
         .menu-info h3 { margin: 0 0 0.5rem 0; font-size: 1.15rem; }
         .menu-info p { font-size: 0.95rem; color: #555; margin-bottom: 0.8rem; }
-        .price { font-weight: bold; color: var(--primary); font-size: 1.15rem; }
+        .price { font-weight: bold; color: var(--primary); font-size: 1.15rem; margin-bottom: 0.5rem; }
+
+        /* Custom Option Select Inside Menu Card */
+        .option-group {
+            margin-bottom: 0.8rem;
+        }
+        .option-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 0.2rem;
+        }
+        .option-select {
+            width: 100%;
+            padding: 0.4rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            background-color: #fff;
+        }
 
         .add-btn {
             margin-top: auto;
@@ -170,8 +190,15 @@
         .cart-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.5rem 0;
+            padding: 0.6rem 0;
             border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .cart-item-detail {
+            font-size: 0.85rem;
+            color: #777;
+            display: block;
         }
 
         .total-price {
@@ -260,7 +287,7 @@
             </div>
         </section>
 
-        <!-- 2. Store Atmosphere Gallery (เพิ่มโซนบรรยากาศร้าน) -->
+        <!-- 2. Store Atmosphere Gallery -->
         <h2>🌿 บรรยากาศภายในร้าน</h2>
         <div class="gallery-grid">
             <div class="gallery-card">
@@ -280,63 +307,129 @@
         <!-- 3. Menu Catalog -->
         <h2>เมนูแนะนำ</h2>
         <div class="menu-grid">
+            
+            <!-- เมนูกาแฟ 1 -->
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" alt="Iced Americano">
                 <div class="menu-info">
                     <h3>☕ Iced Americano</h3>
-                    <p>กาแฟเข้ม หอม สดชื่น จากเมล็ดกาแฟเชียงใหม่คั่วกลาง</p>
+                    <p>กาแฟเข้ม หอม สดชื่น จากเมล็ดกาแฟเชียงใหม่</p>
                     <p class="price">60 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Iced Americano', 60)">+ เพิ่มลงตะกร้า</button>
+                    
+                    <div class="option-group">
+                        <label>ระดับการคั่ว:</label>
+                        <select id="roast-americano" class="option-select">
+                            <option value="คั่วกลาง">คั่วกลาง (นุ่ม หอมผลไม้)</option>
+                            <option value="คั่วเข้ม">คั่วเข้ม (เข้มข้น สะใจ)</option>
+                            <option value="คั่วอ่อน">คั่วอ่อน (เปรี้ยวอมหวาน)</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addCoffeeToCart('Iced Americano', 60, 'roast-americano')">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
+            <!-- เมนูกาแฟ 2 -->
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Iced Latte">
                 <div class="menu-info">
                     <h3>🥛 Iced Latte</h3>
                     <p>กาแฟนมรสนุ่มละมุน ใช้นมสดแท้ 100%</p>
                     <p class="price">65 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Iced Latte', 65)">+ เพิ่มลงตะกร้า</button>
+                    
+                    <div class="option-group">
+                        <label>ระดับการคั่ว:</label>
+                        <select id="roast-latte" class="option-select">
+                            <option value="คั่วกลาง">คั่วกลาง (หอมนุ่มเข้ากัน)</option>
+                            <option value="คั่วเข้ม">คั่วเข้ม (กลิ่นกาแฟชัด)</option>
+                            <option value="คั่วอ่อน">คั่วอ่อน (เบานุ่มสดชื่น)</option>
+                        </select>
+                    </div>
+                    <div class="option-group">
+                        <label>ระดับความหวาน:</label>
+                        <select id="sweet-latte" class="option-select">
+                            <option value="หวานปกติ 100%">หวานปกติ (100%)</option>
+                            <option value="หวานน้อย 25%">หวานน้อย (25%)</option>
+                            <option value="ไม่หวานเลย 0%">ไม่หวานเลย (0%)</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addCoffeeWithSweetToCart('Iced Latte', 65, 'roast-latte', 'sweet-latte')">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
+            <!-- เมนูชามัทฉะ -->
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=800&q=80" alt="Matcha Latte">
                 <div class="menu-info">
                     <h3>🍵 Matcha Latte</h3>
                     <p>มัทฉะเกรดพรีเมียมนำเข้าจากญี่ปุ่น หอมเข้มข้น</p>
                     <p class="price">70 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Matcha Latte', 70)">+ เพิ่มลงตะกร้า</button>
+
+                    <div class="option-group">
+                        <label>ระดับความหวาน:</label>
+                        <select id="sweet-matcha" class="option-select">
+                            <option value="หวานปกติ 100%">หวานปกติ (100%)</option>
+                            <option value="หวานน้อย 25%">หวานน้อย (25%)</option>
+                            <option value="หวานมาก 125%">หวานมาก (125%)</option>
+                            <option value="ไม่หวานเลย 0%">ไม่หวานเลย (0%)</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addDrinkToCart('Matcha Latte', 70, 'sweet-matcha')">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
+            <!-- เมนูช็อกโกแลต -->
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=800&q=80" alt="Hot Chocolate">
                 <div class="menu-info">
                     <h3>☕ Hot Chocolate</h3>
                     <p>ช็อกโกแลตร้อนเข้มข้น ท็อปด้วยมาร์ชแมลโลว์นุ่มฟู</p>
                     <p class="price">60 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Hot Chocolate', 60)">+ เพิ่มลงตะกร้า</button>
+
+                    <div class="option-group">
+                        <label>ระดับความหวาน:</label>
+                        <select id="sweet-choc" class="option-select">
+                            <option value="หวานปกติ 100%">หวานปกติ (100%)</option>
+                            <option value="หวานน้อย 25%">หวานน้อย (25%)</option>
+                            <option value="หวานมาก 125%">หวานมาก (125%)</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addDrinkToCart('Hot Chocolate', 60, 'sweet-choc')">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
+            <!-- เมนูชาผลไม้ -->
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80" alt="Iced Honey Lemon Tea">
                 <div class="menu-info">
                     <h3>🍋 Honey Lemon Tea</h3>
                     <p>ชาดำกลิ่นหอมผสานน้ำผึ้งแท้และมะนาวสด ดื่มแล้วสดชื่น</p>
                     <p class="price">65 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Honey Lemon Tea', 65)">+ เพิ่มลงตะกร้า</button>
+
+                    <div class="option-group">
+                        <label>ระดับความหวาน:</label>
+                        <select id="sweet-lemon" class="option-select">
+                            <option value="หวานปกติ 100%">หวานปกติ (100%)</option>
+                            <option value="หวานน้อย 25%">หวานน้อย (25%)</option>
+                            <option value="หวานมาก 125%">หวานมาก (125%)</option>
+                        </select>
+                    </div>
+
+                    <button class="add-btn" onclick="addDrinkToCart('Honey Lemon Tea', 65, 'sweet-lemon')">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
+            <!-- เมนูเบเกอรี่ (ไม่มีระดับความหวาน/คั่ว) -->
             <div class="menu-card">
                 <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Croissant">
                 <div class="menu-info">
                     <h3>🥐 Butter Croissant</h3>
                     <p>ครัวซองต์เนยแท้จากฝรั่งเศส อบใหม่กรอบนอกนุ่มใน</p>
                     <p class="price">55 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Butter Croissant', 55)">+ เพิ่มลงตะกร้า</button>
+                    <button class="add-btn" onclick="addBakeryToCart('Butter Croissant', 55)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
@@ -346,7 +439,7 @@
                     <h3>🍫 Fudge Brownie</h3>
                     <p>บราวนี่ฟัดจ์ช็อกโกแลตเข้มข้น หนึบหนับ หวานกำลังดี</p>
                     <p class="price">65 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Fudge Brownie', 65)">+ เพิ่มลงตะกร้า</button>
+                    <button class="add-btn" onclick="addBakeryToCart('Fudge Brownie', 65)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
 
@@ -356,7 +449,7 @@
                     <h3>🧀 Basque Cheesecake</h3>
                     <p>ชีสเค้กหน้าไหม้สไตล์บาสก์ เนื้อเนียนนุ่ม หอมชีสเข้มข้น</p>
                     <p class="price">85 บาท</p>
-                    <button class="add-btn" onclick="addToCart('Basque Cheesecake', 85)">+ เพิ่มลงตะกร้า</button>
+                    <button class="add-btn" onclick="addBakeryToCart('Basque Cheesecake', 85)">+ เพิ่มลงตะกร้า</button>
                 </div>
             </div>
         </div>
@@ -393,7 +486,6 @@
 
     <footer>
         <p><strong>My Cafe | Coffee & Bakery Chiang Mai</strong></p>
-        <!-- อัปเดตที่อยู่เชียงใหม่เรียบร้อย -->
         <p>📍 ที่ตั้ง: ถนน นิมมานเหิมนทร์ ซอย 7 อ.เมือง จ.เชียงใหม่ | 🕒 เปิดบริการทุกวัน: 07:00 - 18:00 น.</p>
         <p>📱 ติดต่อผ่าน LINE: <a href="https://line.me/" target="_blank" style="color: #D2B48C;">@mycafe_cm</a></p>
         <p>© 2026 My Cafe Chiang Mai. All rights reserved.</p>
@@ -404,13 +496,42 @@
         </div>
     </footer>
 
-    <!-- JavaScript Handling Interactive Features -->
+    <!-- JavaScript Handling Options & Cart -->
     <script>
         let cart = [];
         let total = 0;
 
-        function addToCart(name, price) {
-            cart.push({ name, price });
+        // เพิ่มเมนูกาแฟ (เลือกเฉพาะระดับการคั่ว)
+        function addCoffeeToCart(name, price, roastElementId) {
+            const roast = document.getElementById(roastElementId).value;
+            const detail = `ระดับการคั่ว: ${roast}`;
+            cart.push({ name, price, detail });
+            total += price;
+            updateCartUI();
+        }
+
+        // เพิ่มเมนูกาแฟ (เลือกระดับการคั่ว + ความหวาน)
+        function addCoffeeWithSweetToCart(name, price, roastElementId, sweetElementId) {
+            const roast = document.getElementById(roastElementId).value;
+            const sweet = document.getElementById(sweetElementId).value;
+            const detail = `${roast}, ${sweet}`;
+            cart.push({ name, price, detail });
+            total += price;
+            updateCartUI();
+        }
+
+        // เพิ่มเมนูเครื่องดื่มทั่วไป (เลือกระดับความหวาน)
+        function addDrinkToCart(name, price, sweetElementId) {
+            const sweet = document.getElementById(sweetElementId).value;
+            const detail = `ระดับความหวาน: ${sweet}`;
+            cart.push({ name, price, detail });
+            total += price;
+            updateCartUI();
+        }
+
+        // เพิ่มเบเกอรี่ (ไม่มีตัวเลือกเพิ่มเติม)
+        function addBakeryToCart(name, price) {
+            cart.push({ name, price, detail: 'เบเกอรี่อบสด' });
             total += price;
             updateCartUI();
         }
@@ -426,7 +547,13 @@
                 cart.forEach((item) => {
                     const li = document.createElement('li');
                     li.className = 'cart-item';
-                    li.innerHTML = `<span>${item.name}</span> <span>${item.price} บาท</span>`;
+                    li.innerHTML = `
+                        <div>
+                            <strong>${item.name}</strong>
+                            <span class="cart-item-detail">(${item.detail})</span>
+                        </div>
+                        <span>${item.price} บาท</span>
+                    `;
                     cartList.appendChild(li);
                 });
             }
@@ -441,7 +568,11 @@
                 return;
             }
             const name = document.getElementById('name').value;
-            alert(`ขอบคุณครับคุณ ${name}!\nระบบได้รับคำสั่งซื้อเรียบร้อยแล้ว (ราคารวม ${total} บาท)`);
+            
+            // สรุปรายการสินค้าที่เลือก
+            let orderSummary = cart.map(i => `- ${i.name} (${i.detail})`).join('\n');
+            
+            alert(`ขอบคุณครับคุณ ${name}!\n\nรายการสั่งซื้อของคุณ:\n${orderSummary}\n\nราคารวมทั้งหมด: ${total} บาท`);
             
             // Reset Cart & Form
             cart = [];
